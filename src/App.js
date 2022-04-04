@@ -22,6 +22,10 @@ function App() {
       <MyArrayProps name={names[3]}></MyArrayProps>
       <MyArrayWithObjectProps info={infos[0]}></MyArrayWithObjectProps>
       <MyArrayWithObjectProps info={infos[1]}></MyArrayWithObjectProps>
+      {
+        infos.map(info => <DaynamicComponent info={info}></DaynamicComponent>)
+      }
+      {/* <DaynamicComponent></DaynamicComponent> */}
     </div>
   );
 }
@@ -99,6 +103,18 @@ function MyArrayWithObjectProps(props){
       <h3>My name is {props.info.name}</h3>
       <h4>My age is {props.info.age}</h4>
     </div>
+  );
+}
+
+/**
+ * react dyanmic component
+ */
+function DaynamicComponent(props){
+  return (
+   <div>
+      <h1>Daynamic Component</h1>
+      <h4>My name is {props.info.name}</h4>
+   </div>
   );
 }
 
