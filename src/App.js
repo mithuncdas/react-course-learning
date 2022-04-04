@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
       {
         infos.map(info => <DaynamicComponent info={info}></DaynamicComponent>)
       }
-      {/* <DaynamicComponent></DaynamicComponent> */}
+      <ReactState></ReactState>
     </div>
   );
 }
@@ -115,6 +116,24 @@ function DaynamicComponent(props){
       <h1>Daynamic Component</h1>
       <h4>My name is {props.info.name}</h4>
    </div>
+  );
+}
+/**
+ * React state
+ */
+function ReactState(){
+  const [age, setAge] = useState(0)
+  const ageIncrease = () => {
+    const newAge = age + 1;
+    setAge(newAge);
+  }
+  return (
+    <div style={{ marginBottom:'10px' }}>
+      <h1>React State</h1>
+      <h4>Your age is :{age} </h4>
+      <button onClick={ageIncrease}>Increase</button>
+      <button onClick={() => setAge(age - 1)}>Decrease</button>
+    </div>
   );
 }
 
